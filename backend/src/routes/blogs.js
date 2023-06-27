@@ -41,12 +41,27 @@ router.delete("/:id", async (req, res) => {
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
-
-  res.json({ message: "delete a post" });
 });
 
-router.patch("/:id", (req, res) => {
-  res.json({ message: "update a post" });
+router.patch("/:id", async (req, res) => {
+  try {
+    const blogId = req.params.id;
+    const { title, description } = req.body;
+
+    const updatedBlog = await Blog.findOneAndUpdate(
+      { _id: blogId },
+      { title, description },
+      { new: true }
+    );
+
+    if (updatedBlog) {
+      res.status(200).json(updatedBlog);
+    } else {
+      res.status(404).json({ error: "Blog not found" });
+    }
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
 module.exports = router;
