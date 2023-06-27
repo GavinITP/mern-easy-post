@@ -3,7 +3,15 @@ const Blog = require("../models/blogModel");
 
 const router = express.Router();
 
-router.get("/", async (req, res) => {});
+router.get("/", async (req, res) => {
+  const blogs = await Blog.find();
+
+  try {
+    res.status(200).json(blogs);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
 
 router.get("/:id", (req, res) => {
   res.json({ message: "single posts" });
