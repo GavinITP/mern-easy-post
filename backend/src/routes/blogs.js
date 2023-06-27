@@ -34,7 +34,14 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", async (req, res) => {
+  try {
+    const blog = await Blog.deleteOne({ _id: req.params.id });
+    res.status(200).json(blog);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+
   res.json({ message: "delete a post" });
 });
 
