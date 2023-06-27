@@ -13,8 +13,14 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", (req, res) => {
-  res.json({ message: "single posts" });
+router.get("/:id", async (req, res) => {
+  const blog = await Blog.findById(req.params.id);
+
+  try {
+    res.status(200).json(blog);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
 router.post("/", async (req, res) => {
