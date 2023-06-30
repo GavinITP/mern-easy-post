@@ -11,7 +11,7 @@ import { ChatIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
   return (
-    <Flex bgColor="black" color="white" h="5rem" alignItems="center">
+    <Flex bgColor="black" color="white" h="4.5rem" alignItems="center" mb={14}>
       <Container maxW="5xl">
         <Flex>
           <Flex gap="0.5rem">
