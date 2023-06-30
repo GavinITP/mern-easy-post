@@ -14,7 +14,7 @@ const Navbar = () => {
     <Flex bgColor="black" color="white" h="4.5rem" alignItems="center" mb={14}>
       <Container maxW="5xl">
         <Flex>
-          <Flex gap="0.5rem">
+          <Flex gap="0.5rem" alignItems="center">
             <ChatIcon boxSize={30} />
             <Text fontSize="xl" fontWeight="bold">
               Easy Blog

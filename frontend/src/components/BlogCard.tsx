@@ -16,8 +16,8 @@ const BlogCard = () => {
     <Card>
       <CardHeader>
         <Flex>
-          <Heading size="lg" color="pink.500">
-            title
+          <Heading fontWeight="bold" size="lg" color="pink.500">
+            Card title
           </Heading>
 
           <Spacer />
@@ -27,8 +27,12 @@ const BlogCard = () => {
       </CardHeader>
 
       <CardBody>
-        <Text>description</Text>
-        <Text>Timestamps</Text>
+        <Text mb={5}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat
+          dolores velit repellendus iure similique nesciunt quidem natus. Neque,
+          perferendis.
+        </Text>
+        <Text color="gray.500">1 min. ago</Text>
       </CardBody>
     </Card>
   );
