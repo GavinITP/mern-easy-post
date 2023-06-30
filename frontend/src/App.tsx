@@ -8,8 +8,8 @@ const App = () => {
     <Box bgColor="gray.50">
       <Navbar />
       <Container maxW="5xl">
-        <Grid templateColumns="70% 30%" gap={10}>
-          <GridItem>
+        <Grid templateColumns={{ base: "100%", lg: "65% 35%" }} gap={10}>
+          <GridItem order={{ base: "1", lg: "0" }}>
             <Feed />
           </GridItem>
 

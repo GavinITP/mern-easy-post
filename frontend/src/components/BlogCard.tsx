@@ -16,7 +16,9 @@ const BlogCard = () => {
     <Card>
       <CardHeader>
         <Flex>
-          <Heading color="pink.500">title</Heading>
+          <Heading size="lg" color="pink.500">
+            title
+          </Heading>
 
           <Spacer />
 
