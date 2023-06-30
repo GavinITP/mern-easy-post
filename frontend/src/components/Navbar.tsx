@@ -1,12 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Container,
-  Flex,
-  Spacer,
-  Text,
-} from "@chakra-ui/react";
+import { Button, Container, Flex, Spacer, Text } from "@chakra-ui/react";
 import { ChatIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {

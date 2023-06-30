@@ -11,28 +11,45 @@ import {
 
 import { DeleteIcon } from "@chakra-ui/icons";
 
-const BlogCard = () => {
+import { BlogType } from "./Feed";
+
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+
+const BlogCard = ({ _id, title, description, createdAt }: BlogType) => {
+  const handleDelete = async (_id) => {
+    const res = await fetch("http://localhost:4000/api/blogs/" + _id, {
+      method: "DELETE",
+    });
+
+    const json = await res.json();
+    console.log(json);
+  };
+
   return (
-    <Card>
+    <Card key={_id}>
       <CardHeader>
         <Flex>
-          <Heading fontWeight="bold" size="lg" color="pink.500">
-            Card title
+          <Heading fontWeight="bold" size="md" color="pink.500">
+            {title}
           </Heading>
 
           <Spacer />
 
-          <IconButton aria-label="Search database" icon={<DeleteIcon />} />
+          <IconButton
+            aria-label="Search database"
+            icon={<DeleteIcon />}
+            onClick={() => {
+              handleDelete(_id);
+            }}
+          />
         </Flex>
       </CardHeader>
 
       <CardBody>
-        <Text mb={5}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi fugiat
-          dolores velit repellendus iure similique nesciunt quidem natus. Neque,
-          perferendis.
+        <Text mb={5}>{description}</Text>
+        <Text color="gray.500">
+          {formatDistanceToNow(new Date(createdAt), { addSuffix: true })}
         </Text>
-        <Text color="gray.500">1 min. ago</Text>
       </CardBody>
     </Card>
   );

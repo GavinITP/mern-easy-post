@@ -5,7 +5,7 @@ import Form from "./components/Form";
 
 const App = () => {
   return (
-    <Box bgColor="gray.50">
+    <Box minH="100vh" bgColor="gray.50">
       <Navbar />
       <Container maxW="5xl">
         <Grid templateColumns={{ base: "100%", lg: "65% 35%" }} gap={10}>
