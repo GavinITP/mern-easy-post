@@ -1,16 +1,14 @@
-import { Card, CardBody, CardFooter, CardHeader } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
+import BlogCard from "./BlogCard";
 
 const Feed = () => {
   return (
-    <>
-      <Card>
-        <CardHeader>Header</CardHeader>
-
-        <CardBody>Body</CardBody>
-
-        <CardFooter>Footer</CardFooter>
-      </Card>
-    </>
+    <Flex gap={6} direction="column">
+      <BlogCard />
+      <BlogCard />
+      <BlogCard />
+      <BlogCard />
+    </Flex>
   );
 };
 
