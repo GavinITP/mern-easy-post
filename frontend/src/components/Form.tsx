@@ -10,8 +10,8 @@ import {
 import { useState } from "react";
 
 const Form = () => {
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -44,7 +44,7 @@ const Form = () => {
           type="text"
           placeholder="Blog title..."
           mb={5}
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setTitle(e.target.value);
           }}
         />
@@ -53,7 +53,7 @@ const Form = () => {
         <Textarea
           placeholder="Blog Description..."
           mb={10}
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
             setDescription(e.target.value);
           }}
         />
