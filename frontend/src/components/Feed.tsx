@@ -15,7 +15,9 @@ const Feed = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const res = await fetch("http://localhost:4000/api/blogs");
+      const res = await fetch(
+        "https://gavinitp-mern-easy-post.onrender.com/api/blogs/"
+      );
       const json = await res.json();
 
       if (res.ok) setBlogs(json);

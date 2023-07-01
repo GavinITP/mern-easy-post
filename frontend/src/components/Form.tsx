@@ -13,18 +13,21 @@ const Form = () => {
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     const newBlog = { title, description };
 
-    const res = await fetch("http://localhost:4000/api/blogs", {
-      method: "POST",
-      body: JSON.stringify(newBlog),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await fetch(
+      "https://gavinitp-mern-easy-post.onrender.com/api/blogs/",
+      {
+        method: "POST",
+        body: JSON.stringify(newBlog),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     console.log(res);
   };

@@ -16,10 +16,13 @@ import { BlogType } from "./Feed";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const BlogCard = ({ _id, title, description, createdAt }: BlogType) => {
-  const handleDelete = async (_id) => {
-    const res = await fetch("http://localhost:4000/api/blogs/" + _id, {
-      method: "DELETE",
-    });
+  const handleDelete = async (_id: string) => {
+    const res = await fetch(
+      "https://gavinitp-mern-easy-post.onrender.com/api/blogs/" + _id,
+      {
+        method: "DELETE",
+      }
+    );
 
     const json = await res.json();
     console.log(json);
